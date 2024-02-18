@@ -18,3 +18,6 @@
 **Important Parameters:**
 - `REACH_DISTANCE`: Distance from initial coordinates considered as reaching the ground.
 - `BOUNCE_DISTANCE`: Distance moved after which a bounce is counted.
+
+**NOTE**
+This project only use cv2 and the analysis perform can significantly improve by adding deep learning techniques.
