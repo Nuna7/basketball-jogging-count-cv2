@@ -1,19 +1,15 @@
 import cv2
 import numpy as np
-import mediapipe as mp
 
 video_path = "./WHATSAAP ASSIGNMENT.mp4"
 cap = cv2.VideoCapture(video_path)
 fps = cap.get(cv2.CAP_PROP_FPS)
 
-mp_hands = mp.solutions.hands
-hands = mp_hands.Hands()
-
-BOUNCE_DISTANCE = 30
-REACH_DISTANCE = 70
+BOUNCE_DISTANCE = 45
+REACH_DISTANCE = 65
 
 def detect_basketball(frame):
-     """
+    """
     Detects a basketball in the given frame using color-based segmentation.
 
     Parameters:
@@ -143,12 +139,6 @@ def main(cap, fps):
 
                     i = 0
 
-            if start_bound:
-                cv2.circle(frame, (initial_x, initial_y), 5, (0, 0, 255), -1)
-
-            if reach_ground:
-                cv2.circle(frame, (bound_x, bound_y), 5, (255, 0, 0), -1)
-
             # If we didn't reach the ground or bounce back for too long, re-initialise the initial ball coordiantes
             if ((i - start_bound_frame) >= int(fps+5) and start_bound) or ((i - reach_ground_frame) >= int(fps/2) and reach_ground) or (not reach_ground and not start_bound):
                 start_bound = False
@@ -158,16 +148,14 @@ def main(cap, fps):
                 frame, f'Dribble Count: {dribble_count}', (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2,
                 cv2.LINE_AA
             )
-
             cv2.putText(
                 frame, f'Fastest : Dribble Number {fastest_bound}', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1,
                 cv2.LINE_AA
             )
             cv2.putText(
-                frame, f'Slowest : Dribble Number {slowest_bound}', (10, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.6a, (255, 255, 255), 1,
+                frame, f'Slowest : Dribble Number {slowest_bound}', (10, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 1,
                 cv2.LINE_AA
             )
-
 
             cv2.rectangle(frame, (x_cur, y_cur), (x_cur + w_cur, y_cur + h_cur), (0, 255, 0), 2)
 
