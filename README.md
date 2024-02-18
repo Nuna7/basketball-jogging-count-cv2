@@ -4,9 +4,9 @@
 - Identify ball bounces when reaching a specified distance from the initial coordinates.
 - Using frame number to track fastest and slowest bounce
 
-**Video Specifics:**
-- Assumes one yellow ball in the video.
-- Tuned for a specific video, frame size, and resolution.
+**Specific to the video:**
+- This project is specific to the video or the ball movement.
+- The logic and distance is tuned to the temporal characteristics of the ball movement.
 
 **Main Logic:**
 1. Detect the basketball using HSV value, masking, and contours.
