@@ -21,3 +21,5 @@
 
 **NOTE**
 This project only use cv2 and the analysis perform can significantly improve by adding deep learning techniques.
+
+Watch the couting of jogging (bouncing) of ball using opencv (here)[./BOUNCE_COUNT_WITH_CV2.mp4]
